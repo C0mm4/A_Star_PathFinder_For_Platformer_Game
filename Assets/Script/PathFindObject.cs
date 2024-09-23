@@ -59,10 +59,10 @@ public class PathFindObject : MonoBehaviour
     bool IsObjectOnTilemap()
     {
         // Translate world position to Cell position of tilemap
-        Vector3Int cellPosition = tilemap.WorldToCell(transform.position);
+        Vector3Int cellPosition = currentMap.mapTile.WorldToCell(transform.position);
 
         // Get Cell bounds of tilemap
-        BoundsInt bounds = tilemap.cellBounds;
+        BoundsInt bounds = currentMap.mapTile.cellBounds;
 
         // Check position into cell bounds
         if (!bounds.Contains(cellPosition))
@@ -71,7 +71,7 @@ public class PathFindObject : MonoBehaviour
         }
 
         // if object position in cell bounds, and cell position hasn't any tile, return true
-        TileBase tile = tilemap.GetTile(cellPosition);
+        TileBase tile = currentMap.mapTile.GetTile(cellPosition);
         tileMapPos = new Vector2Int(cellPosition.x, cellPosition.y);
         if (tile == null)
         {

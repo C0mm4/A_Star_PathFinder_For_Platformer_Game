@@ -9,8 +9,6 @@ public class Map : MonoBehaviour
     public int[,] mapGridData;
 
     public AStarPathfinding aStar;
-    [SerializeField]
-    public List<int> grid;
 
 
     public void Start()
@@ -20,28 +18,8 @@ public class Map : MonoBehaviour
         ConvertTilemapToGrid();
 
         aStar = new(mapGridData, mapTile.cellBounds.xMin, mapTile.cellBounds.yMin);
-        grid = ConvertToList(mapGridData);
     }
 
-    public List<int> ConvertToList(int[,] array)
-    {
-        List<int> list = new List<int>();
-
-        // 다차원 배열의 크기 얻기
-        int width = array.GetLength(0);
-        int height = array.GetLength(1);
-
-        // 각 요소를 리스트에 추가
-        for (int i = 0; i < width; i++)
-        {
-            for (int j = 0; j < height; j++)
-            {
-                list.Add(array[i, j]);
-            }
-        }
-
-        return list;
-    }
 
     public void UpdateBounds()
     {
