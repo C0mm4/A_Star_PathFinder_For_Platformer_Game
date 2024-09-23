@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -26,7 +24,7 @@ public class PathFindObject : MonoBehaviour
     public void Update()
     {
         Vector3 objectPosition = transform.position;
-        if (IsObjectOnTilemap(currentMap.mapTile, objectPosition))
+        if (IsObjectOnTilemap())
         {
             if (targetObject != null)
             {
