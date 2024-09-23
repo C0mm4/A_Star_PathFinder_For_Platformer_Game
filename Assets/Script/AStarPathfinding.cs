@@ -34,7 +34,7 @@ public class AStarPathfinding
         return FindPath(start, target);
     }
 
-    public Vector2Int ApplyGravity(Vector2Int start)
+    private Vector2Int ApplyGravity(Vector2Int start)
     {
         Vector2Int newStart = new Vector2Int(start.x, start.y);
 
@@ -62,7 +62,7 @@ public class AStarPathfinding
         return newStart;
     }
 
-    public List<Vector2Int> FindPath(Vector2Int start, Vector2Int target)
+    private List<Vector2Int> FindPath(Vector2Int start, Vector2Int target)
     {
         // activate gravity to start point
         start = ApplyGravity(start);
