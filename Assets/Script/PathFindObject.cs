@@ -42,14 +42,14 @@ public class PathFindObject : MonoBehaviour
                     {
                         foreach (Vector2Int step in path)
                         {
-                            UnityEngine.Debug.Log("경로: " + step);
+                            UnityEngine.Debug.Log("Path: " + step);
                             tilemap.SetTile(new Vector3Int(step.x + tilemap.cellBounds.xMin, step.y + tilemap.cellBounds.yMin, 0), pathTile);
                         }
                         UnityEngine.Debug.Log("End Searching");
                     }
                     else
                     {
-                        UnityEngine.Debug.Log("경로를 찾지 못했습니다.");
+                        UnityEngine.Debug.Log("can't find explore path.");
                     }
                     UnityEngine.Debug.Log($"Pathfinding execute time : {stopwatch.ElapsedMilliseconds} ms");
                     findPath = true;
@@ -58,21 +58,21 @@ public class PathFindObject : MonoBehaviour
         }
     }
 
-    bool IsObjectOnTilemap(Tilemap tilemap, Vector3 worldPosition)
+    bool IsObjectOnTilemap()
     {
-        // 월드 좌표를 타일맵의 셀 좌표로 변환
-        Vector3Int cellPosition = tilemap.WorldToCell(worldPosition);
+        // Translate world position to Cell position of tilemap
+        Vector3Int cellPosition = tilemap.WorldToCell(transform.position);
 
-        // 타일맵의 셀 범위 가져오기
+        // Get Cell bounds of tilemap
         BoundsInt bounds = tilemap.cellBounds;
 
-        // 좌표가 타일맵의 범위 내에 있는지 확인
+        // Check position into cell bounds
         if (!bounds.Contains(cellPosition))
         {
             return false;
         }
 
-        // 셀 범위 내에 있더라도 타일이 없을 수 있으므로 타일 존재 여부 확인
+        // if object position in cell bounds, and cell position hasn't any tile, return true
         TileBase tile = tilemap.GetTile(cellPosition);
         tileMapPos = new Vector2Int(cellPosition.x, cellPosition.y);
         if (tile == null)
@@ -80,8 +80,8 @@ public class PathFindObject : MonoBehaviour
             return true;
         }
 
-        // 타일이 존재하는 경우
-        return true;
+        // if cell position has any tile, return false
+        return false;
     }
 
 
