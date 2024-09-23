@@ -18,6 +18,7 @@ public class Systems : MonoBehaviour
 
     public void Search()
     {
+        ResetButton();
         Starter.GetComponent<PathFindObject>().findPath = false;
     }
 }
