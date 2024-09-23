@@ -11,10 +11,9 @@ public class AStarPathfinding
     private Dictionary<int, List<Vector2Int>> pathcache = new();
     private bool isUsed = false;
 
-    public AStarPathfinding(int[,] grid, int xMin, int yMin, int jumpForce = 1)
+    public AStarPathfinding(int[,] grid, int xMin, int yMin)
     {
         this.grid = grid;
-        this.jumpForce = jumpForce;
         this.xMin = xMin;
         this.yMin = yMin;
     }
