@@ -8,8 +8,11 @@ public class Systems : MonoBehaviour
 
     public GameObject Starter;
     public GameObject target;
+
+    public Map map;
     public void ResetButton()
     {
+        map.UpdateTile();
         pathTile.ClearAllTiles();
         pathTile.origin = mapTile.origin;
     }

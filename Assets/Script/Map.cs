@@ -15,9 +15,7 @@ public class Map : MonoBehaviour
     {
 
         UpdateBounds();
-        ConvertTilemapToGrid();
-
-        aStar = new(mapGridData, mapTile.cellBounds.xMin, mapTile.cellBounds.yMin);
+        UpdateTile();
     }
 
 
@@ -32,7 +30,7 @@ public class Map : MonoBehaviour
     {
         BoundsInt bounds = mapTile.cellBounds;
         mapGridData = new int[bounds.size.x, bounds.size.y];
-
+        // converting [-inf, inf] data to [0, inf] data and that position exists any tile, set data 1(can't move area)
         for (int y = bounds.yMax - 1; y >= bounds.yMin; y--)
         {
             for (int x = bounds.xMin; x < bounds.xMax; x++)
@@ -49,5 +47,10 @@ public class Map : MonoBehaviour
 
     }
 
+    public void UpdateTile()
+    {
+        ConvertTilemapToGrid();
+        aStar = new(mapGridData, mapTile.cellBounds.xMin, mapTile.cellBounds.yMin);
+    }
 }
 

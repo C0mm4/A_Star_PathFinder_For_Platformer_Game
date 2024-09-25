@@ -19,6 +19,7 @@ public class AStarPathfinding
 
     public async Task<List<Vector2Int>> FindPathInField(Vector2Int start, Vector2Int target, int jumpForce = 1)
     {
+        // set Critical Section
         while (isUsed)
         {
             await Task.Yield();
