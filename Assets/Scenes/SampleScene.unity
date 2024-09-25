@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 796395006}
   - component: {fileID: 796395005}
   m_Layer: 5
-  m_Name: Button (1)
+  m_Name: Research
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1782,7 +1782,7 @@ GameObject:
   - component: {fileID: 1123651201}
   - component: {fileID: 1123651200}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Reset
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1963,7 +1963,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mapTile: {fileID: 1718953787}
-  grid: 
 --- !u!1 &1718953784
 GameObject:
   m_ObjectHideFlags: 0
